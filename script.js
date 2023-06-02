@@ -35,4 +35,35 @@ function capitalizeOnlyFirstLetter(playerInput = prompt('Choose your weapon!!'))
     return playerSelection = convertedLetter + convertedSubstring
 }
 
+function playRound(){
 
+    capitalizeOnlyFirstLetter()
+    getComputerChoice()
+
+    if (playerSelection === computerSelection){
+        alert(`That was a tie! You both chose ${playerSelection}`)
+    } 
+    else if (playerSelection === 'Rock' && computerSelection === 'Paper' ){
+        alert('Haha!! You lose! Paper beats Rock')
+    }
+    else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ){
+        alert('Wow! You win that round, Rock beats Scissors')
+    }
+    else if (playerSelection === 'Paper' && computerSelection === 'Scissors' ){
+        alert('Haha!! You lose! Scissors beats Paper')
+    }
+    else if (playerSelection === 'Paper' && computerSelection === 'Rock' ){
+        alert('Wow! You win that round, Paper beats Rock')
+    }
+    else if (playerSelection === 'Scissors' && computerSelection === 'Rock' ){
+        alert('Haha!! You lose! Rock beats Scissors')
+    }
+    else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ){
+        alert('Wow! You win that round, Scissors beats Paper')
+    }
+    else {
+        alert('Please choose a proper weapon!!')
+    }
+}
+
+playRound()
