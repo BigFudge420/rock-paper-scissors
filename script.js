@@ -9,12 +9,13 @@ function getComputerChoice(){
     let randomNumber = Math.floor(Math.random()*3);
     switch (randomNumber){
         case 0:
-            computerSelection = 'rock'
+            return computerSelection = 'rock'
             break;
         case 1:
+            return computerSelection = 'scissors'
             break;
         case 2:
-            computerSelection = 'paper'
+            return computerSelection = 'paper'
             break;
     }
 }
