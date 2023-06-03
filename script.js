@@ -4,7 +4,8 @@
 // use prompt to get the player's choice 
 // create function that makes the player's choice case insensitve
 // make a function that plays one round and declares winners, with parameters that have the values equal to both the players and computers choice of weapon
-// make a funtion that plays a game, with 5 rounds
+// make a function that plays a game, with 5 rounds
+// create a score system
 
 //  ------------ALGORITHM------------
 
@@ -35,6 +36,13 @@ function capitalizeOnlyFirstLetter(playerInput = prompt('Choose your weapon!!'))
     return playerSelection = convertedLetter + convertedSubstring
 }
 
+let computerScore = 0;
+let playerScore = 0; 
+
+function displayScore(){
+    alert(`Your Score:  ${playerScore}     Computer's Score: ${computerScore}`)
+}
+
 function playRound(){
 
     capitalizeOnlyFirstLetter()
@@ -42,32 +50,57 @@ function playRound(){
 
     if (playerSelection === computerSelection){
         alert(`That was a tie! You both chose ${playerSelection}`)
+        computerScore++
+        playerScore++
     } 
     else if (playerSelection === 'Rock' && computerSelection === 'Paper' ){
         alert('Haha!! You lose! Paper beats Rock')
+        computerScore++
     }
     else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ){
         alert('Wow! You win that round, Rock beats Scissors')
+        playerScore++
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Scissors' ){
         alert('Haha!! You lose! Scissors beats Paper')
+        computerScore++
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Rock' ){
         alert('Wow! You win that round, Paper beats Rock')
+        playerScore++
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Rock' ){
         alert('Haha!! You lose! Rock beats Scissors')
+        computerScore++
     }
     else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ){
         alert('Wow! You win that round, Scissors beats Paper')
+        playerScore++
     }
     else {
         alert('Please choose a proper weapon!!')
     }
+
+    displayScore()
+
 }
 
 function game(){
     for (i = 1; i <= 5; i++){
         playRound()
     }
+
+    if (playerScore > computerScore){
+        alert("Congratulations!! You won the game")
+    }
+    else if (playerScore < computerScore){
+        alert("Game Over! You lose")
+    }
+    else {
+        alert("That was intense! It ended in a tie")
+    }
+
+    alert(`Final Score: \nYour Score:  ${playerScore}     Computer's Score: ${computerScore}`)
 }
+
+game()
