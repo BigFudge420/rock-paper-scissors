@@ -45,42 +45,48 @@ function displayScore(){
 
 function playRound(){
 
-    capitalizeOnlyFirstLetter()
-    getComputerChoice()
+    let validOption = false;
+    while (!validOption){
+        capitalizeOnlyFirstLetter()
+        getComputerChoice()
 
-    if (playerSelection === computerSelection){
-        alert(`That was a tie! You both chose ${playerSelection}`)
-        computerScore++
-        playerScore++
-    } 
-    else if (playerSelection === 'Rock' && computerSelection === 'Paper' ){
-        alert('Haha!! You lose! Paper beats Rock')
-        computerScore++
+        if (playerSelection === computerSelection){
+            alert(`That was a tie! You both chose ${playerSelection}`)
+            computerScore++
+            playerScore++
+        } 
+        else if (playerSelection === 'Rock' && computerSelection === 'Paper' ){
+            alert('Haha!! You lose! Paper beats Rock')
+            computerScore++
+        }
+        else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ){
+            alert('Wow! You win that round, Rock beats Scissors')
+            playerScore++
+        }
+        else if (playerSelection === 'Paper' && computerSelection === 'Scissors' ){
+            alert('Haha!! You lose! Scissors beats Paper')
+            computerScore++
+        }
+        else if (playerSelection === 'Paper' && computerSelection === 'Rock' ){
+            alert('Wow! You win that round, Paper beats Rock')
+            playerScore++
+        }
+        else if (playerSelection === 'Scissors' && computerSelection === 'Rock' ){
+            alert('Haha!! You lose! Rock beats Scissors')
+            computerScore++
+        }
+        else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ){
+            alert('Wow! You win that round, Scissors beats Paper')
+            playerScore++
+        }
+        else {
+            alert('Please choose a valid weapon!!')
+            continue;
+        }
+        
+        validOption = true;
     }
-    else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ){
-        alert('Wow! You win that round, Rock beats Scissors')
-        playerScore++
-    }
-    else if (playerSelection === 'Paper' && computerSelection === 'Scissors' ){
-        alert('Haha!! You lose! Scissors beats Paper')
-        computerScore++
-    }
-    else if (playerSelection === 'Paper' && computerSelection === 'Rock' ){
-        alert('Wow! You win that round, Paper beats Rock')
-        playerScore++
-    }
-    else if (playerSelection === 'Scissors' && computerSelection === 'Rock' ){
-        alert('Haha!! You lose! Rock beats Scissors')
-        computerScore++
-    }
-    else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ){
-        alert('Wow! You win that round, Scissors beats Paper')
-        playerScore++
-    }
-    else {
-        alert('Please choose a proper weapon!!')
-    }
-
+    
     displayScore()
 
 }
