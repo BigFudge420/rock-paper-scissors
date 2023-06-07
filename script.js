@@ -27,17 +27,19 @@ function getComputerChoice(){
 }
  
 let playerSelection
+let playerScore = 0; 
+let computerScore = 0;
 
-function capitalizeOnlyFirstLetter(playerInput = prompt('Choose your weapon!!')){
-    let firstChar = playerInput.charAt(0)
-    let restOfTheString =  playerInput.slice(1)
-    let convertedLetter = firstChar.toUpperCase()
-    let convertedSubstring = restOfTheString.toLowerCase()
-    return playerSelection = convertedLetter + convertedSubstring
+const Buttons = document.querySelectorAll('.btn')
+
+function getClickedButton(e){
+    let clickedButton = e.target
+    console.log(clickedButton)
 }
 
-let computerScore = 0;
-let playerScore = 0; 
+Buttons.forEach(button => {
+    button.addEventListener('click', getClickedButton())
+})
 
 function displayScore(){
     alert(`Your Score:  ${playerScore}     Computer's Score: ${computerScore}`)
