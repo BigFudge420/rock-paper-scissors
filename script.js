@@ -91,22 +91,22 @@ function playRound(){
 
 }
 
-function game(){
-    for (i = 1; i <= 5; i++){
-        playRound()
-    }
+// function game(){
+//     for (i = 1; i <= 5; i++){
+//         playRound()
+//     }
 
-    if (playerScore > computerScore){
-        alert("Congratulations!! You won the game")
-    }
-    else if (playerScore < computerScore){
-        alert("Game Over! You lose")
-    }
-    else {
-        alert("That was intense! It ended in a tie")
-    }
+//     if (playerScore > computerScore){
+//         alert("Congratulations!! You won the game")
+//     }
+//     else if (playerScore < computerScore){
+//         alert("Game Over! You lose")
+//     }
+//     else {
+//         alert("That was intense! It ended in a tie")
+//     }
 
-    alert(`Final Score: \nYour Score:  ${playerScore}     Computer's Score: ${computerScore}`)
-}
+//     alert(`Final Score: \nYour Score:  ${playerScore}     Computer's Score: ${computerScore}`)
+// }
 
-game()
+// game()
