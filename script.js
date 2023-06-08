@@ -32,6 +32,7 @@ let computerScore = 0;
 
 const Buttons = document.querySelectorAll('.btn')
 const Result = document.querySelector('.result')
+const Score = document.querySelector('.score')
 
 function getClickedButton(e){
     let clickedButton = e.target.id;
@@ -50,7 +51,7 @@ function getClickedButton(e){
 }
 
 function displayScore(){
-    alert(`Your Score:  ${playerScore}     Computer's Score: ${computerScore}`)
+    Score.textContent = `Your Score:  ${playerScore}     Computer's Score: ${computerScore}`
 }
 
 function playRound(){
@@ -89,6 +90,7 @@ function playRound(){
         Result.textContent = 'Wow! You win that round, Scissors beats Paper'
         playerScore++
     }
+    displayScore()
 }
 
 Buttons.forEach(button => {
