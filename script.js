@@ -33,13 +33,20 @@ let computerScore = 0;
 const Buttons = document.querySelectorAll('.btn')
 
 function getClickedButton(e){
-    let clickedButton = e.target
-    console.log(clickedButton)
+    let clickedButton = e.target.id;
+    
+    
+    if (clickedButton === 'Rock'){
+        playerSelection = 'Rock'
+    }
+    else if (clickedButton === 'Paper'){
+        playerSelection = 'Paper'
+    }
+    else if (clickedButton === 'Scissors'){
+        playerSelection = 'Scissors'
+    }
+    playRound()
 }
-
-Buttons.forEach(button => {
-    button.addEventListener('click', getClickedButton())
-})
 
 function displayScore(){
     alert(`Your Score:  ${playerScore}     Computer's Score: ${computerScore}`)
@@ -47,51 +54,41 @@ function displayScore(){
 
 function playRound(){
 
-    let validOption = false;
-    while (!validOption){
-        capitalizeOnlyFirstLetter()
-        getComputerChoice()
-
-        if (playerSelection === computerSelection){
-            alert(`That was a tie! You both chose ${playerSelection}`)
-            computerScore++
-            playerScore++
-        } 
-        else if (playerSelection === 'Rock' && computerSelection === 'Paper' ){
-            alert('Haha!! You lose! Paper beats Rock')
-            computerScore++
-        }
-        else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ){
-            alert('Wow! You win that round, Rock beats Scissors')
-            playerScore++
-        }
-        else if (playerSelection === 'Paper' && computerSelection === 'Scissors' ){
-            alert('Haha!! You lose! Scissors beats Paper')
-            computerScore++
-        }
-        else if (playerSelection === 'Paper' && computerSelection === 'Rock' ){
-            alert('Wow! You win that round, Paper beats Rock')
-            playerScore++
-        }
-        else if (playerSelection === 'Scissors' && computerSelection === 'Rock' ){
-            alert('Haha!! You lose! Rock beats Scissors')
-            computerScore++
-        }
-        else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ){
-            alert('Wow! You win that round, Scissors beats Paper')
-            playerScore++
-        }
-        else {
-            alert('Please choose a valid weapon!!')
-            continue;
-        }
-        
-        validOption = true;
+    getComputerChoice()
+    if (playerSelection === computerSelection){
+        console.log(`That was a tie! You both chose ${playerSelection}`)
+        computerScore++
+        playerScore++
+    } 
+    else if (playerSelection === 'Rock' && computerSelection === 'Paper' ){
+        console.log('Haha!! You lose! Paper beats Rock')
+        computerScore++
     }
-    
-    displayScore()
-
+    else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ){
+        console.log('Wow! You win that round, Rock beats Scissors')
+        playerScore++
+    }
+    else if (playerSelection === 'Paper' && computerSelection === 'Scissors' ){
+        console.log('Haha!! You lose! Scissors beats Paper')
+        computerScore++
+    }
+    else if (playerSelection === 'Paper' && computerSelection === 'Rock' ){
+        console.log('Wow! You win that round, Paper beats Rock')
+        playerScore++
+    }
+    else if (playerSelection === 'Scissors' && computerSelection === 'Rock' ){
+        console.log('Haha!! You lose! Rock beats Scissors')
+        computerScore++
+    }
+    else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ){
+        console.log('Wow! You win that round, Scissors beats Paper')
+        playerScore++
+    }
 }
+
+Buttons.forEach(button => {
+    button.addEventListener('click', getClickedButton)
+})
 
 // function game(){
 //     for (i = 1; i <= 5; i++){
