@@ -1,14 +1,3 @@
-//  ------------ALGORITHM------------
-
-// create new function getComputerChoice that picks an option from rock, paper and scissors on random.
-// use prompt to get the player's choice 
-// create function that makes the player's choice case insensitve
-// make a function that plays one round and declares winners, with parameters that have the values equal to both the players and computers choice of weapon
-// make a function that plays a game, with 5 rounds
-// create a score system
-
-//  ------------ALGORITHM------------
-
 let computerSelection
 
 function getComputerChoice(){
@@ -110,23 +99,3 @@ function playRound(){
 Buttons.forEach(button => {
     button.addEventListener('click', getClickedButton)
 })
-
-// function game(){
-//     for (i = 1; i <= 5; i++){
-//         playRound()
-//     }
-
-//     if (playerScore > computerScore){
-//         alert("Congratulations!! You won the game")
-//     }
-//     else if (playerScore < computerScore){
-//         alert("Game Over! You lose")
-//     }
-//     else {
-//         alert("That was intense! It ended in a tie")
-//     }
-
-//     alert(`Final Score: \nYour Score:  ${playerScore}     Computer's Score: ${computerScore}`)
-// }
-
-// game()
