@@ -31,6 +31,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 const Buttons = document.querySelectorAll('.btn')
+const Result = document.querySelector('.result')
 
 function getClickedButton(e){
     let clickedButton = e.target.id;
@@ -56,32 +57,36 @@ function playRound(){
 
     getComputerChoice()
     if (playerSelection === computerSelection){
-        console.log(`That was a tie! You both chose ${playerSelection}`)
+        Result.textContent = `That was a tie! You both chose ${playerSelection}`
         computerScore++
         playerScore++
     } 
     else if (playerSelection === 'Rock' && computerSelection === 'Paper' ){
-        console.log('Haha!! You lose! Paper beats Rock')
+        Result.textContent = 'Haha!! You lose! Paper beats Rock'
         computerScore++
     }
     else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ){
-        console.log('Wow! You win that round, Rock beats Scissors')
+        Result.textContent = 'Wow! You win that round, Rock beats Scissors'
         playerScore++
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Scissors' ){
-        console.log('Haha!! You lose! Scissors beats Paper')
+        Result.textContent = 'Haha!! You lose! Scissors beats Paper'
         computerScore++
     }
     else if (playerSelection === 'Paper' && computerSelection === 'Rock' ){
-        console.log('Wow! You win that round, Paper beats Rock')
+        Result.textContent = 'Wow! You win that round, Paper beats Rock'
         playerScore++
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Rock' ){
-        console.log('Haha!! You lose! Rock beats Scissors')
+        Result.textContent = 'Haha!! You lose! Rock beats Scissors'
+        computerScore++
+    }
+    else if (playerSelection === 'Scissors' && computerSelection === 'Paper' ){
+        Result.textContent = 'Wow! You win that round, Scissors beats Paper'
         computerScore++
     }
     else if (playerSelection === 'Rock' && computerSelection === 'Scissors' ){
-        console.log('Wow! You win that round, Scissors beats Paper')
+        Result.textContent = 'Wow! You win that round, Scissors beats Paper'
         playerScore++
     }
 }
