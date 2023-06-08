@@ -33,6 +33,7 @@ let computerScore = 0;
 const Buttons = document.querySelectorAll('.btn')
 const Result = document.querySelector('.result')
 const Score = document.querySelector('.score')
+const Winner = document.querySelector('.winner')
 
 function getClickedButton(e){
     let clickedButton = e.target.id;
@@ -54,6 +55,7 @@ function displayScore(){
     Score.textContent = `Your Score:  ${playerScore}     Computer's Score: ${computerScore}`
 }
 
+let round = 0;
 function playRound(){
 
     getComputerChoice()
@@ -91,6 +93,18 @@ function playRound(){
         playerScore++
     }
     displayScore()
+    round++
+    if(round === 5){
+        if (computerScore < playerScore){
+            Winner.textContent = 'Congratulations!! You won the game'
+        }
+        else if (computerScore > playerScore){
+            Winner.textContent = 'Game Over! You lose'
+        }
+        else {
+            Winner.textContent = 'That was intense! It ended in a tie'
+        }
+    }
 }
 
 Buttons.forEach(button => {
