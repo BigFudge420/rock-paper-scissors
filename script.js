@@ -118,6 +118,7 @@ function playRound(){
     }
 
     displayScore()
+    updateNarration()
     
     round++
     
@@ -145,19 +146,10 @@ function playRound(){
             }
         }
         else {
-            Result.textContent = 'That was intense! It ended in a tie'
-            if (playerSelection === 'Rock'){
-                Result.textContent = "In a battle echoing with the strength of ages, both combatants brandish solid rocks, unyielding and steadfast. The clash of titans reverberates through the realm, but destiny plays a curious hand, declaring an eternal tie. "
-            }
-            else if (playerSelection === 'Paper'){
-                Result.textContent = "Ancient parchment and futuristic scrolls unfurl in unison, bearing symbols of knowledge and secrets untold. The ethereal air crackles with anticipation, as both adversaries reveal the mysteries of paper. Yet, the cosmic tapestry weaves a tale of balance, intertwining their destinies in an eternal tie."
-            }
-            else if (playerSelection === 'Scissors'){
-                Result.textContent = "Like twin serpents poised for a dance, the razor-sharp blades of both adversaries slice through the air in perfect synchrony. A symphony of metal rings out, their scissor-wielding prowess on display. Yet, the cosmic scales tip towards equilibrium, declaring an eternal tie."
-            }
+            Result.textContent = "At the zenith of the climactic duel, a breathtaking tableau unfolds. The ethereal realm bears witness to a symphony of motion, as the clash reaches its crescendo, only to unveil an astonishing twist: a harmonious tie. Time stands still, freezing this spellbinding moment in an eternal masterpiece, where warriors' intertwined destinies paint a vivid tapestry of skill and resilience."
         }
+        Narration.textContent = ''
     }
-    updateNarration()
 
 }
 
