@@ -26,6 +26,13 @@ button{
     font-size: 1.5rem;
 }
 
+#restart{
+    height: 50px;
+    width: 200px;
+    margin:0px auto;
+    border-radius: 50px;  
+}
+
 .weapons{
     display: flex;
     justify-content: center;
