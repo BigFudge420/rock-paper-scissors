@@ -1,0 +1,81 @@
+body{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: 'Ubuntu' ,'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+button{
+    margin: 5px;
+}
+
+.weapons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.result{
+    font-weight: 800;
+    text-align: center;
+    font-size: 30px;
+}
+
+.scores{
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    margin: 20px 20px -30px 20px;
+}
+
+.narration{
+    text-align: center;
+    margin: auto;
+    width: 800px
+}
+
+button{
+    background-color: white;
+}
+
+button:hover{
+    box-shadow: white 0px 2px 4px;
+}
+
+#Rock{
+    background-image: url(./images/rock-2.png);
+    background-size: 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#Scissors{
+    background-image: url(./images/scissors.png);
+    background-size: 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+
+#Paper{
+    background-image: url(./images/paper.png);
+    background-size: 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    padding: 20px;
+}
