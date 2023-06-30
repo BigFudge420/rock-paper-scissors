@@ -183,7 +183,7 @@ function playRound(){
     }
     else if (playerSelection === 'Scissors' && computerSelection === 'Paper' ){
         Result.textContent = 'You chose scissors, and the computer chose paper. Scissors cut paper. You win!'
-        computerScore++
+        playerScore++
     }
 
     displayScore()
