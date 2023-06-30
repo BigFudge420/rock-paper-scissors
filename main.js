@@ -25,6 +25,11 @@ const playerScoreText = document.querySelector('.player-score')
 const computerScoreText = document.querySelector('.computer-score')
 const Narration = document.querySelector('.narration')
 const restartBtn = document.getElementById('#restart')
+let playerBtn;
+let computerBtn;
+let otherBtn;
+let arrayBtn;
+
 
 function restartNow(){
     playerScore = 0
@@ -33,6 +38,57 @@ function restartNow(){
     Result.textContent = 'Choose your weapon wisely and may fortune favor the bold!'
     Narration.textContent = "Welcome, brave warrior, to the realm of Rock, Paper, Scissors! Prepare to engage in a battle of wits and strategy, where ancient traditions clash with the technology of tomorrow..."
     round = 0;
+    playerBtn = document.getElementById(playerSelection)
+    computerBtn = document.getElementById(computerSelection)
+    playerBtn.style.backgroundColor = '#FFFFFF'
+    computerBtn.style.backgroundColor = '#FFFFFF'
+}
+
+function decideOtherBtn(){
+    if (arrayBtn.includes('Rock') && arrayBtn.includes('Paper')){
+        otherBtn = document.getElementById('Scissors')
+    }
+    else if (arrayBtn.includes('Rock') && arrayBtn.includes('Scissors')){
+        otherBtn = document.getElementById('Paper')
+    }
+    else if (arrayBtn.includes('Paper') && arrayBtn.includes('Scissors')){
+        otherBtn = document.getElementById('Rock')
+    }
+    else if (playerSelection === 'Paper'&& computerSelection === 'Paper'){
+        let other1  = document.getElementById('Scissors')
+        let other2 = document.getElementById('Rock')
+        otherBtn = [other1, other2]
+    }
+    else if (playerSelection === 'Rock'&& computerSelection === 'Rock'){
+        let other1  = document.getElementById('Scissors')
+        let other2 = document.getElementById('Paper')
+        otherBtn = [other1, other2]
+    }
+    else if (playerSelection === 'Scissors'&& computerSelection === 'Scissors'){
+        let other1  = document.getElementById('Paper')
+        let other2 = document.getElementById('Rock')
+        otherBtn = [other1, other2]
+    }
+}
+
+function changeBtnBg(){
+    playerBtn = document.getElementById(playerSelection)
+    computerBtn = document.getElementById(computerSelection)
+    decideOtherBtn()
+    playerBtn.style.backgroundColor = "#FF7F5B"
+    computerBtn.style.backgroundColor = "#6A7EFC"
+    if (Array.isArray(otherBtn)){
+        otherBtn.forEach((other) => {
+            other.style.backgroundColor = '#FFFFFF'
+        })
+    }
+    else {
+        otherBtn.style.backgroundColor = '#FFFFFF'
+    }
+    if (playerSelection === computerSelection){
+        playerBtn.style.backgroundColor = "#59CE8F"
+        computerBtn.style.backgroundColor = "#59CE8F"
+    }
 }
 
 function getClickedButton(e){
@@ -48,6 +104,7 @@ function getClickedButton(e){
     else if (clickedButton === 'Scissors'){
         playerSelection = 'Scissors'
     }
+
     playRound()
 }
 
@@ -94,8 +151,10 @@ function updateNarration(){
 
 let round = 0;
 function playRound(){
-
+    
     getComputerChoice()
+    arrayBtn = [`${playerSelection}`, `${computerSelection}`]
+    changeBtnBg()
     
     if (playerSelection === computerSelection){
         Result.textContent = `You chose ${playerSelection}, and the computer chose ${playerSelection}. It's a tie!`
