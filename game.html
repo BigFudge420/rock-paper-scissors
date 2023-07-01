@@ -15,10 +15,20 @@
         <p class="computer-score">Computer Score: 0</p>
     </div>
         <div class="weapons">
-            <button class="btn" id="Rock"></button>
-            <button class="btn" id="Paper"></button>
-            <button class="btn" id="Scissors"></button>
+            <button data-popup-target="#popup" class="btn" id="Rock"></button>
+            <button data-popup-target="#popup" class="btn" id="Paper"></button>
+            <button data-popup-target="#popup" class="btn" id="Scissors"></button>
         </div>
+        <div class="popup" id="popup">
+            <div class="popup-header">
+                <div class="title"></div>
+                <button data-popup-close class="close-button">&times;</button>
+            </div>
+            <p class="popup-body">
+                
+            </p>
+        </div>
+        <div  id="overlay"></div>
         <h2 class="narration">Welcome, brave warrior, to the realm of Rock, Paper, Scissors! Prepare to engage in a battle of wits and strategy, where ancient traditions clash with the technology of tomorrow... </h2>
         <script src="main.js"></script>
 </body>

@@ -1,5 +1,6 @@
 let computerSelection
 
+
 function getComputerChoice(){
     let randomNumber = Math.floor(Math.random()*3);
     switch (randomNumber){
@@ -18,6 +19,14 @@ function getComputerChoice(){
 let playerSelection
 let playerScore = 0; 
 let computerScore = 0;
+let round = 0;
+let playerBtn;
+let computerBtn;
+let otherBtn;
+let arrayBtn;
+
+console.log(computerScore)
+console.log(playerScore)
 
 const Buttons = document.querySelectorAll('.btn')
 const Result = document.querySelector('.result')
@@ -25,10 +34,6 @@ const playerScoreText = document.querySelector('.player-score')
 const computerScoreText = document.querySelector('.computer-score')
 const Narration = document.querySelector('.narration')
 const restartBtn = document.getElementById('#restart')
-let playerBtn;
-let computerBtn;
-let otherBtn;
-let arrayBtn;
 
 
 function restartNow(){
@@ -93,6 +98,7 @@ function changeBtnBg(){
 
 function getClickedButton(e){
     let clickedButton = e.target.id;
+    round++
     
     
     if (clickedButton === 'Rock'){
@@ -105,7 +111,72 @@ function getClickedButton(e){
         playerSelection = 'Scissors'
     }
 
-    playRound()
+    console.log(computerScore)
+    console.log(playerScore)
+    console.log(round)
+
+    if (round <= 5){
+        playRound()
+    }
+
+
+    showAndClosePopUp()
+
+}
+
+function showAndClosePopUp() {
+    const openPopupButtons = document.querySelectorAll('[data-popup-target]');
+    const closePopupButtons = document.querySelectorAll('[data-popup-close]');
+    const popupMessage = document.querySelector('.popup-body')
+    const popupTitle = document.querySelector('.title')
+    const overlay = document.getElementById('overlay');
+  
+    if (computerScore < playerScore && round > 5){
+        popupTitle.textContent = "Victory Achieved!"
+        popupMessage.textContent = "Victory shines upon you! Your strategic prowess has prevailed against the mighty computer opponent. Click the restart button to embark on another exhilarating Rock, Paper, Scissors adventure and reaffirm your dominance!"
+    }
+    else if (computerScore > playerScore && round > 5){
+        popupTitle.textContent = "Defeat Endured!"
+        popupMessage.textContent = "Alas! The computer has emerged triumphant in this epic battle of wits. Fear not, noble challenger, for the realm of Rock, Paper, Scissors offers another chance at redemption. Click the restart button to hone your skills and claim victory in the next encounter!"
+    }
+    else if (computerScore === playerScore && round > 5){
+        popupTitle.textContent = "Equillibrium Unleashed"
+        popupMessage.textContent = "A magnificent stalemate! The forces of equilibrium have deemed this match a tie, leaving both contenders in awe of each other's skill. Click the restart button to delve into another captivating round, where destiny may unfold in your favor or test your mettle once again!"
+    }
+
+    openPopupButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const popup = document.querySelector(button.dataset.popupTarget);
+        if (round > 5){
+            openPopup(popup);
+        }
+      });
+    });
+  
+    closePopupButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const popup = button.closest('.popup');
+        closePopup(popup);
+      });
+    });
+  }
+  
+
+function openPopup(popup){
+    if (popup == null){
+        return
+    }
+    popup.classList.add('active')
+    overlay.classList.add('active')
+}
+
+function closePopup(popup){
+    if (popup == null){
+        return
+    }
+
+    popup.classList.remove('active')
+    overlay.classList.remove('active')
 }
 
 function displayScore(){
@@ -149,7 +220,6 @@ function updateNarration(){
     }
 }
 
-let round = 0;
 function playRound(){
     
     getComputerChoice()
@@ -189,7 +259,7 @@ function playRound(){
     displayScore()
     updateNarration()
     
-    round++
+    
     
     if(round === 5){
         if (computerScore < playerScore){
@@ -214,6 +284,7 @@ function playRound(){
                 Result.textContent = "In a swift and calculated strike, the computer's scissors pierce through your defenses, leaving you defenseless and defeated. Its digital prowess proves unmatched, marking it as the undeniable victor of this medieval-futuristic showdown."
             }
         }
+        
         else {
             Result.textContent = "At the zenith of the climactic duel, a breathtaking tableau unfolds. The ethereal realm bears witness to a symphony of motion, as the clash reaches its crescendo, only to unveil an astonishing twist: a harmonious tie. Time stands still, freezing this spellbinding moment in an eternal masterpiece, where warriors' intertwined destinies paint a vivid tapestry of skill and resilience."
         }
