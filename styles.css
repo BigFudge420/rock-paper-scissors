@@ -196,6 +196,22 @@ button:hover{
             font-size: 1.5rem;
         }
 
+        .popup{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 400px;
+            max-width: 70%;
+            min-width: 200px;
+            transition: 200ms ease-in-out;
+            border: 1px solid white;
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+            z-index: 10;
+        }
+
         .popup.active{
             transform: translate(-50%, -50%) scale(1);
         }
