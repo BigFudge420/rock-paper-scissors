@@ -62,22 +62,6 @@ button{
     width: 800px;
 }
 
-@media only screen and (max-width: 767px) {
-    body{
-        padding: 2px;
-    }
-    .narration{
-        text-align: center;
-        width: 400px;
-    }   
-    .intro{
-        text-align: center;
-        width: 400px;
-        word-spacing: 2px;
-        font-weight: 400;
-        font-size: 1.5rem;
-    }
-}
 
 #start{
     height: 50px;
@@ -194,3 +178,27 @@ button:hover{
 .popup.active{
     transform: translate(0%, 0%) scale(1);
 }
+    @media only screen and (max-width: 767px) {
+        body{
+            padding: 2px;
+        }
+        .narration{
+            text-align: center;
+            width: 400px;
+        }   
+        .intro{
+            text-align: center;
+            width: 400px;
+            word-spacing: 2px;
+            font-weight: 400;
+            font-size: 1.5rem;
+        }
+
+        .popup{
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+        .popup.active{
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
