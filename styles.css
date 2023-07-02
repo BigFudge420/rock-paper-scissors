@@ -114,7 +114,9 @@ button:hover{
 
 .popup{
     position: fixed;
-    transform: translate(0%, 0%) scale(0);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
     width: 400px;
     max-width: 70%;
     min-width: 200px;
@@ -176,7 +178,7 @@ button:hover{
 }
 
 .popup.active{
-    transform: translate(0%, 0%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
 }
     @media only screen and (max-width: 767px) {
         body{
@@ -192,10 +194,6 @@ button:hover{
             word-spacing: 2px;
             font-weight: 400;
             font-size: 1.5rem;
-        }
-
-        .popup{
-            transform: translate(-50%, -50%) scale(0);
         }
 
         .popup.active{
